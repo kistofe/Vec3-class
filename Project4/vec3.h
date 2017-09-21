@@ -9,47 +9,42 @@ class vec3
 {
 
 public:
-	vec3() : x(NULL), y(NULL), z(NULL) {};
+	vec3() {};
 	vec3(T _x, T _y, T _z) { x = _x; y = _y; z = _z; }
 	~vec3() {};
 
 	vec3 operator+(const vec3& vec)
 	{
-		vec3 sec_vec;
-		sec_vec.x = x + vec.x;
-		sec_vec.y = y + vec.y;
-		sec_vec.z = z + vec.z;
-		return sec_vec;
+		return x + vec.x, y + vec.y, z + vec.z;
 	}
 
 	vec3 operator-(const vec3& vec)
 	{
-		vec3 sec_vec;
-		sec_vec.x = x - vec.x;
-		sec_vec.y = y - vec.y;
-		sec_vec.z = z - vec.z;
-		return sec_vec;
+		return x - vec.x, y - vec.y, z - vec.z;
 	}
 
-	void operator+=(const vec3& vec) const
+	vec3 operator+=(const vec3& vec) const
 	{
 		x += vec.x;
 		y += vec.y;
 		z += vec.z;
+		return x, y, z;
 	}
 
-	void operator-=(const vec3& vec) const
+	vec3 operator-=(const vec3& vec) const
 	{
 		x -= vec.x;
 		y -= vec.y;
 		z -= vec.z;
+		return x, y, z;
 	}
 
-	void operator=(const vec3& vec) 
+	vec3 operator=(const vec3& vec) 
 	{
 		x = vec.x;
 		y = vec.y;
 		z = vec.z;
+		return x, y, z;
 	}
 
 	bool operator==(const vec3& vec) const
@@ -91,7 +86,8 @@ public:
 		return sqrt(xcomp + ycomp + zcomp);
 
 	}
-private:
+
+public:
 	T x, y, z;
 
 };
